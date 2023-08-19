@@ -2,11 +2,12 @@ import requests
 from datetime import datetime
 import smtplib
 
-MY_EMAIL = "your_mail@gmail.com"
-MY_PASSWORD = "your_password"
+MY_EMAIL = "mail_address@gmail.com"
+MY_PASSWORD = "password"
 
-MY_LAT = 51.507351 # My Old House Latitude - change if you want yours
-MY_LONG = -0.127758 # My Old House Longitude - change if you want yours
+"""Put Latitude and Longitude values, now it is set for my old dormitory."""
+MY_LAT = 52.250428
+MY_LONG = 20.995246
 
 def is_iss_overhead():
     response = requests.get(url="http://api.open-notify.org/iss-now.json")
@@ -45,7 +46,7 @@ if is_iss_overhead() and is_night():
     conection.sendmail(
         from_addr= MY_EMAIL,
         to_addrs= "your_mail@outlook.com"
-        msg="Subject:LOOK UP \n\n The ISS Is above you in the sky"
+        msg="Subject: Hi There \n\n The ISS (International Space Station) Is above you in the sky"
     )
 
 
